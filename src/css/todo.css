@@ -1,0 +1,23 @@
+.todo-list {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.todo-item {
+  background-color: aliceblue;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.todo-item > button {
+  position: relative;
+  right: 0;
+}
+
+.todo-item input:checked + p {
+  text-decoration: line-through;
+}

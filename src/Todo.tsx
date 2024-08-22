@@ -1,68 +1,57 @@
-import React, { Component, ChangeEvent, MouseEvent } from 'react';
-
-type Task = {
-  text: string,
-  completed: boolean
-};
-
+import React, { Component, MouseEvent } from 'react';
+import TodoList from './toDoComponents/ToDoList';
+import './css/todo.css';
 
 type TodoProps = {
   onHomeClick: () => void
 };
 
-type ToDoState = {
-  todoList: Map<string, Task> | undefined
-};
 
-export class ToDo extends Component<TodoProps, ToDoState> {
+export class ToDo extends Component<TodoProps, {}> {
   constructor(props: TodoProps) {
     super(props);
-    this.state = {todoList: undefined}
   }
-
-  componentDidMount = (): void => {
-    this.initializePage();
-  };
 
   render = (): JSX.Element => {
     return (
-      <div id="ToDoPage">
-        <div className="navBar">
-          <button id="homeBtn" onClick={this.doHomeClick}>Home</button>
+      <div id="todo-page">
+        <div className="nav-bar">
+          <button id="home-btn" onClick={this.doHomeClick}>Home</button>
         </div>
-        <div id="ToDoList">
+        <TodoList/>
+        {/* <div id="ToDoList">
           <h2>ToDo List</h2>
           <div id="ToDoActionBar">
             <button id="addToDoBtn" onClick={this.onAddToDoClick}>+</button>
           </div>
           {this.renderItems()}
-        </div>
+        </div> */}
       </div>
     );
   };
 
-  renderItems = (): JSX.Element => {
-    if (this.state.todoList === undefined ||
-    this.state.todoList.size === 0) {
-      return (
-        <div id="toDoItems"></div>
-      );
-    } else {
-      return (
-        <div id="toDoItems">
-        </div>
-      );
-    }
-  };
+  // renderItems = (): JSX.Element => {
+  //   if (this.state.todoList === undefined ||
+  //   this.state.todoList.size === 0) {
+  //     return (
+  //       <div id="toDoItems"></div>
+  //     );
+  //   } else {
+  //     return (
+  //       <div id="toDoItems">
+  //       </div>
+  //     );
+  //   }
+  // };
 
-  onAddToDoClick = (): void => {
+  // onAddToDoClick = (): void => {
 
-  };
+  // };
 
-  initializePage = (): void => {
-    const todoList: Map<string, Task> = new Map();
-    this.setState({todoList: todoList});
-  };
+  // initializePage = (): void => {
+  //   const todoList: Map<string, Task> = new Map();
+  //   this.setState({todoList: todoList});
+  // };
 
   doHomeClick = (_: MouseEvent<HTMLButtonElement>): void => {
     this.props.onHomeClick();

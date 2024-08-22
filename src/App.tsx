@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import './index.css';
 import { ToDo } from './Todo';
+import { Home } from './Home';
+import { Diagram } from './Diagram';
 
 
 type Page = "todo" | "home" | "diagram";
@@ -19,14 +20,12 @@ export class App extends Component<{}, AppState> {
     if (this.state.page === "todo") {
       return <ToDo onHomeClick={this.doHomeClick}/>
     } else if (this.state.page === "home") {
-      return <Home onToDoClick={this.doTodoClick}
+      return <Home onTodoClick={this.doTodoClick}
                    onDiagramClick={this.doDiagramClick}/>
-    } else { // state = diagram
+    } else { // state.page = diagram
       return <Diagram onHomeClick={this.doHomeClick}/>
     }
   };
-
-
 
   doDiagramClick = (): void => {
     this.setState({page: "diagram"});

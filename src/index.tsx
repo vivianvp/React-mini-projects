@@ -1,6 +1,8 @@
 import React from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import { App } from './App';
+import reportWebVitals from './reportWebVitals';
+
 
 const main: HTMLElement|null = document.getElementById('main');
 if (main === null)
@@ -8,3 +10,5 @@ if (main === null)
 
 const root: Root = createRoot(main);
 root.render(<App/>);
+
+reportWebVitals();
