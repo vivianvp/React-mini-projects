@@ -1,11 +1,10 @@
 import React, { Component, MouseEvent } from 'react';
-import TodoList from './components/TdoList';
+import TodoList from './components/TodoList';
 import './css/todo.css';
 
 type TodoProps = {
   onHomeClick: () => void
 };
-
 
 export class ToDo extends Component<TodoProps, {}> {
   constructor(props: TodoProps) {

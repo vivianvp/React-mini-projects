@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { ToDo } from './Todo';
-import { Home } from './Home';
-import { Diagram } from './Diagram';
+import { ToDo } from './Todo.tsx';
+import { Home } from './Home.tsx';
+import { Diagram } from './Diagram.tsx';
 
 
 type Page = "todo" | "home" | "diagram";
@@ -13,7 +13,7 @@ type AppState = {
 export default class App extends Component<{}, AppState> {
   constructor(props: {}) {
     super(props);
-    this.state = {page: "home"};
+    this.state = {page: "todo"};
   }
 
   render = (): JSX.Element => {

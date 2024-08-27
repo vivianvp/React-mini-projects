@@ -1,0 +1,12 @@
+#home-page {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#home-page button {
+  background-color: antiquewhite;
+  border-radius: 25px;
+}
