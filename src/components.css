@@ -1,0 +1,268 @@
+/* Add Bar Component Styles */
+#add-shapes-bar {
+  user-select: none;
+  width: 800px;
+  height: 80px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  top: 20px;
+  left: calc(50vw - 400px);
+  box-shadow: 0px 2px 5px grey;
+  z-index: 1000;
+}
+
+#add-shapes-text {
+  position: absolute;
+  bottom: -50px;
+  color: grey;
+}
+
+.add-btns {
+  background-color: transparent;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  border: solid black 2px;
+  padding: 0px;
+  position: relative;
+}
+
+#rectangle-icon {
+  width: 30px;
+  height: 20px;
+  border: solid black 1px;
+  position: absolute;
+  top: 12px;
+  left: 7px;
+  margin: 0px;
+}
+
+#circle-icon {
+  width: 25px;
+  height: 25px;
+  border: solid black 1px;
+  position: absolute;
+  top: 9.5px;
+  left: 9.5px;
+  margin: 0px;
+  border-radius: 50%;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgba(164, 202, 218, 0.761);
+}
+
+button:active {
+  background-color: rgba(119, 178, 203, 0.876);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
+}
+
+/* Edit Bar Component Style */
+#edit-bar {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 20px;
+  top: 150px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  box-shadow: 0px 2px 5px grey;
+  width: 200px;
+  padding-bottom: 20px;
+  z-index: 1000;
+}
+
+.color-option {
+  width: 30px;
+  height: 30px;
+  border: solid 0.5px lightgrey;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+.border-option {
+  box-shadow:
+    0px 0px 2px rgb(124, 124, 124),
+    inset 0px 0px 2px rgb(124, 124, 124);
+  padding: 2px;
+}
+
+.palette-title {
+  position: relative;
+}
+
+.palette-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  margin-bottom: 10px;
+}
+
+.grey-bg {
+  background-color: rgb(184, 184, 184);
+}
+
+.pink-bg {
+  background-color: rgb(255, 211, 218);
+}
+
+.yellow-bg {
+  background-color: rgb(255, 255, 196);
+}
+
+.mint-bg {
+  background-color: rgb(168, 239, 211);
+}
+
+.blue-bg {
+  background-color: rgb(189, 241, 255);
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.black-border {
+  border: solid black 2px;
+}
+
+.pink-border {
+  border: solid rgb(236, 145, 160) 2px;
+}
+
+.mint-border {
+  border: solid rgb(102, 205, 160) 2px;
+}
+
+.yellow-border {
+  border: solid rgb(240, 204, 0) 2px;
+}
+
+.blue-border {
+  border: solid rgb(69, 167, 194) 2px;
+}
+
+.white-border {
+  border: solid white 3px;
+}
+
+.text-option {
+  font-size: 28px;
+  margin: 8px 5px;
+  text-shadow: 0px 0px 5px rgb(71, 69, 69);
+  padding: 2px 7px;
+}
+
+.black-text {
+  color: black;
+}
+
+.red-text {
+  color: rgb(211, 0, 0);
+}
+
+.green-text {
+  color: green;
+}
+
+.yellow-text {
+  color: rgb(255, 220, 23);
+}
+
+.blue-text {
+  color: rgb(28, 0, 210);
+}
+
+.white-text {
+  color: white;
+}
+
+.palette-section > div:hover, .palette-section > p:hover {
+  cursor: pointer;
+}
+
+.palette-section > div:active, .palette-section > p:active {
+  outline: blue solid 2px;
+  border-radius: 5px;
+}
+
+/* Rectangle Component Styles */
+.resizer {
+  position: absolute;
+  background-color: blue;
+}
+
+.resizer-t {
+  width: calc(100% + 18px);
+  height: 2px;
+  top: -9px;
+  left: -9px;
+  cursor: ns-resize;
+}
+
+.resizer-l {
+  height: calc(100% + 18px);
+  width: 2px;
+  left: -9px;
+  top: -9px;
+  cursor: ew-resize;
+}
+
+.resizer-r {
+  height: calc(100% + 18px);
+  width: 2px;
+  right: -9px;
+  top: -9px;
+  cursor: ew-resize;
+}
+
+.resizer-b {
+  width: calc(100% + 18px);
+  height: 2px;
+  bottom: -9px;
+  left: -9px;
+  cursor: ns-resize;
+}
+
+.corner {
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  outline: blue solid 2px;
+  border-radius: 1px;
+  z-index: 3;
+}
+
+.resizer-tl {
+  top: -12px;
+  left: -12px;
+  cursor: nwse-resize;
+}
+
+.resizer-tr {
+  top: -12px;
+  right: -12px;
+  cursor: nesw-resize;
+}
+
+.resizer-bl {
+  bottom: -12px;
+  left: -12px;
+  cursor: nesw-resize;
+}
+
+.resizer-br {
+  bottom: -12px;
+  right: -12px;
+  cursor: nwse-resize;
+}
