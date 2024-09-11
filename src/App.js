@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import AddBar from "./components/AddBar";
 import EditBar from "./components/EditBar";
 import Rectangle from "./components/Rectangle";
+import Circle from "./components/Circle";
+import TextBox from "./components/TextBox";
 import "./App.css";
 import "./components.css";
 
@@ -48,23 +50,23 @@ function App() {
     const bgColor =
       elementType === "textBox" ? "transparent" : COLOR_CODE_BOOK.whiteBg;
 
-    setShapes((prevShapes) => [
-      ...prevShapes,
-      {
-        id: Date.now(),
-        type: elementType,
-        backgroundColor: bgColor,
-        borderColor: COLOR_CODE_BOOK.blackBorder,
-        textColor: COLOR_CODE_BOOK.blackText,
-      },
-    ]);
+    const id = Date.now();
+    const newShape = {
+      id: id,
+      type: elementType,
+      backgroundColor: bgColor,
+      borderColor: COLOR_CODE_BOOK.blackBorder,
+      textColor: COLOR_CODE_BOOK.blackText,
+    };
+    setShapes((prevShapes) => [...prevShapes, newShape]);
+    setSelected(newShape);
   }
 
   function changeBgColor(color) {
     const newColor = COLOR_CODE_BOOK[color];
     setShapes((shapes) =>
       shapes.map((shape) =>
-        shape.id === selected ? { ...shape, backgroundColor: newColor } : shape
+        shape.id === selected.id ? { ...shape, backgroundColor: newColor } : shape
       )
     );
   }
@@ -73,7 +75,7 @@ function App() {
     const newColor = COLOR_CODE_BOOK[color];
     setShapes((shapes) =>
       shapes.map((shape) =>
-        shape.id === selected ? { ...shape, borderColor: newColor } : shape
+        shape.id === selected.id ? { ...shape, borderColor: newColor } : shape
       )
     );
   }
@@ -82,48 +84,79 @@ function App() {
     const newColor = COLOR_CODE_BOOK[color];
     setShapes((shapes) =>
       shapes.map((shape) =>
-        shape.id === selected ? { ...shape, textColor: newColor } : shape
+        shape.id === selected.id ? { ...shape, textColor: newColor } : shape
       )
     );
   }
-
-  // useEffect(() => {
-  //   document.addEventListener("click", (e) => handleBackgroundClick(e));
-
-  //   return () => {
-  //     document.removeEventListener("click", handleBackgroundClick);
-  //   };
-  // }, []);
 
   function handleBackgroundClick(evt) {
     if (evt.target !== evt.currentTarget) return;
     setSelected(null);
   }
 
+  function renderElements(shape) {
+    switch (shape.type) {
+      case "rectangle":
+        console.log("case rect");
+        return (
+          <Rectangle
+            key={shape.id}
+            isSelected={selected.id === shape.id}
+            style={{
+              backgroundColor: shape.backgroundColor,
+              color: shape.textColor,
+              border: `solid 3px ${shape.borderColor}`,
+            }}
+            onClick={() => {
+              setSelected(shape);
+            }}
+          />
+        );
+      case "circle":
+        console.log("case circle");
+        return (
+          <Circle
+            key={shape.id}
+            isSelected={selected.id === shape.id}
+            style={{
+              backgroundColor: shape.backgroundColor,
+              color: shape.textColor,
+              border: `solid 3px ${shape.borderColor}`,
+            }}
+            onClick={() => {
+              setSelected(shape);
+            }}
+          />
+        );
+      case "textBox":
+        return (
+          <TextBox
+            key={shape.id}
+            isSelected={selected === shape}
+            style={{
+              backgroundColor: shape.backgroundColor,
+              color: shape.textColor,
+              border: `solid 3px ${shape.borderColor}`,
+            }}
+            onClick={() => {
+              setSelected(shape);
+            }}
+          />
+        );
+    }
+  }
+
   return (
     <div id="diagram-app" onClick={(e) => handleBackgroundClick(e)}>
       <AddBar addElement={addElement} />
       <EditBar
-        selected={selected !== null}
+        selected={selected}
         changeBgColor={changeBgColor}
         changeBorderColor={changeBorderColor}
         changeTextColor={changeTextColor}
       />
-      {shapes.map((shape) => (
-        <Rectangle
-          key={shape.id}
-          isSelected={selected === shape.id}
-          style={{
-            backgroundColor: shape.backgroundColor,
-            color: shape.textColor,
-            border: `${shape.type === "textBox" ? "none" : "solid 3px"}`,
-            borderColor: shape.borderColor,
-          }}
-          onClick={() => {
-            setSelected(shape.id);
-          }}
-        />
-      ))}
+      {shapes.map((shape) => renderElements(shape))}
+      {console.log(shapes)}
     </div>
   );
 }

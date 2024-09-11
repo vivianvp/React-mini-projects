@@ -8,7 +8,7 @@ function EditBar({
   changeTextColor,
 }) {
   function renderOnSelected() {
-    if (typeof selected === "undefined") {
+    if (typeof selected === "null") {
       return <div></div>;
     } else {
       if (selected.type === "textBox") {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TodoItem from "./TodoItem";
 import TextBox from "./TextBox";
+import Rectangle from "./Rectangle";
 
 function TodoList() {
   const [tasks, setTasks] = useState([]);

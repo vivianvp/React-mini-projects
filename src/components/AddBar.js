@@ -17,9 +17,9 @@ function AddBar({ addElement }) {
       <button className="add-btns" name="textBox" onClick={handleClick}>
         Text Box
       </button>
-      <button className="add-btns" name="todo" onClick={handleClick}>
+      {/* <button className="add-btns" name="todo" onClick={handleClick}>
         Todo List
-      </button>
+      </button> */}
     </div>
   );
 }

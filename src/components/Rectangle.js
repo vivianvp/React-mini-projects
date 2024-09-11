@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function Rectangle({ style, isSelected, onClick }) {
+function Rectangle({ style, isSelected, onClick, innerTextStyle = {} }) {
   const DEFAULT_STYLE = {
     width: 300,
     height: 200,
     backgroundColor: "white",
-    borderColor: "black",
+    border: "solid 3px black",
     x: 500, // left
     y: 200, // top
     textColor: "black",
@@ -149,8 +149,9 @@ function Rectangle({ style, isSelected, onClick }) {
         backgroundColor:
           style?.backgroundColor || DEFAULT_STYLE.backgroundColor,
         color: style?.color || DEFAULT_STYLE.textColor,
-        border: `solid 3px ${style?.borderColor || DEFAULT_STYLE.borderColor}`,
+        border: style?.border || DEFAULT_STYLE.border,
         cursor: "move",
+        borderRadius: style.borderRadius || "0",
       }}
       onMouseDown={(e) => handleMouseDownMove(e)}
       onClick={onClick}
@@ -170,12 +171,14 @@ function Rectangle({ style, isSelected, onClick }) {
             outline: "none",
             fontSize: "inherit",
             margin: "10px",
-            height: "90%",
-            width: "90%",
             resize: "none",
             overflow: "hidden",
             boxSizing: "content-box",
             color: style?.color || DEFAULT_STYLE.textColor,
+            width: innerTextStyle.widthPercentage || "90%",
+            position: "relative",
+            top: innerTextStyle.top || "0",
+            left: innerTextStyle.left || "0",
           }}
         ></textarea>
       ) : (
@@ -183,10 +186,12 @@ function Rectangle({ style, isSelected, onClick }) {
           onDoubleClick={handleDoubleClick}
           style={{
             margin: "10px",
-            width: "90%",
+            width: innerTextStyle.widthPercentage || "90%",
             overflow: "scroll",
-            height: "90%",
             color: style?.color || DEFAULT_STYLE.textColor,
+            position: "relative",
+            top: innerTextStyle.top || "0",
+            left: innerTextStyle.left || "0",
           }}
         >
           {text}
@@ -194,23 +199,6 @@ function Rectangle({ style, isSelected, onClick }) {
       )}
       {isSelected && (
         <>
-          {/* corners */}
-          <div
-            className="resizer corner resizer-tl"
-            onMouseDown={(e) => handleMouseDownResize(e, "topLeft")}
-          ></div>
-          <div
-            className="resizer corner resizer-tr"
-            onMouseDown={(e) => handleMouseDownResize(e, "topRight")}
-          ></div>
-          <div
-            className="resizer corner resizer-bl"
-            onMouseDown={(e) => handleMouseDownResize(e, "bottomLeft")}
-          ></div>
-          <div
-            className="resizer corner resizer-br"
-            onMouseDown={(e) => handleMouseDownResize(e, "bottomRight")}
-          ></div>
           {/* edges */}
           <div
             className="resizer vertical-edge resizer-l"
@@ -227,6 +215,23 @@ function Rectangle({ style, isSelected, onClick }) {
           <div
             className="resizer horizontal-edge resizer-b"
             onMouseDown={(e) => handleMouseDownResize(e, "bottom")}
+          ></div>
+          {/* corners */}
+          <div
+            className="resizer corner resizer-tl"
+            onMouseDown={(e) => handleMouseDownResize(e, "topLeft")}
+          ></div>
+          <div
+            className="resizer corner resizer-tr"
+            onMouseDown={(e) => handleMouseDownResize(e, "topRight")}
+          ></div>
+          <div
+            className="resizer corner resizer-bl"
+            onMouseDown={(e) => handleMouseDownResize(e, "bottomLeft")}
+          ></div>
+          <div
+            className="resizer corner resizer-br"
+            onMouseDown={(e) => handleMouseDownResize(e, "bottomRight")}
           ></div>
         </>
       )}
