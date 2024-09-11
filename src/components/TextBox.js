@@ -12,8 +12,6 @@ function TextBox({ style, isSelected, onClick }) {
       style={{
         backgroundColor: "transparent",
         color: style.color,
-        width: DEFAULT_STYLE.width || style?.width,
-        height: DEFAULT_STYLE.height || style?.height,
         borderWidth: "1px",
       }}
       onClick={onClick}
