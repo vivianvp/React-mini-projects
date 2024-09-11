@@ -8,7 +8,9 @@ function EditBar({
   changeTextColor,
 }) {
   function renderOnSelected() {
-    if (typeof selected === "null") {
+    console.log("renderOnSelected selected:", selected);
+    console.log("renderOnSelected typeof selected: ", typeof selected);
+    if (selected === null) {
       return <div></div>;
     } else {
       if (selected.type === "textBox") {
@@ -243,7 +245,6 @@ function EditBar({
       }
     }
   }
-
   return <div>{renderOnSelected()}</div>;
 }
 

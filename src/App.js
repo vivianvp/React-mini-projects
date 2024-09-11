@@ -44,7 +44,7 @@ function App() {
    * }
    */
   const [shapes, setShapes] = useState([]);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(null);
 
   function addElement(elementType) {
     const bgColor =
@@ -66,7 +66,9 @@ function App() {
     const newColor = COLOR_CODE_BOOK[color];
     setShapes((shapes) =>
       shapes.map((shape) =>
-        shape.id === selected.id ? { ...shape, backgroundColor: newColor } : shape
+        shape.id === selected.id
+          ? { ...shape, backgroundColor: newColor }
+          : shape
       )
     );
   }
@@ -101,7 +103,7 @@ function App() {
         return (
           <Rectangle
             key={shape.id}
-            isSelected={selected.id === shape.id}
+            isSelected={selected === null ? false : selected.id === shape.id}
             style={{
               backgroundColor: shape.backgroundColor,
               color: shape.textColor,
@@ -117,7 +119,7 @@ function App() {
         return (
           <Circle
             key={shape.id}
-            isSelected={selected.id === shape.id}
+            isSelected={selected === null ? false : selected.id === shape.id}
             style={{
               backgroundColor: shape.backgroundColor,
               color: shape.textColor,
@@ -132,7 +134,7 @@ function App() {
         return (
           <TextBox
             key={shape.id}
-            isSelected={selected === shape}
+            isSelected={selected === null ? false : selected.id === shape.id}
             style={{
               backgroundColor: shape.backgroundColor,
               color: shape.textColor,
