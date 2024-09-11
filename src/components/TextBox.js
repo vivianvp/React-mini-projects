@@ -13,6 +13,7 @@ function TextBox({ style, isSelected, onClick }) {
         backgroundColor: "transparent",
         color: style.color,
         borderWidth: "1px",
+        border: style.border,
       }}
       onClick={onClick}
     />
