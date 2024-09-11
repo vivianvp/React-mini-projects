@@ -13,7 +13,6 @@ function Circle({ style, isSelected, onClick }) {
       }}
       innerTextStyle={{
         widthPercentage: "80%",
-        heightPercentage: "40%",
         position: "relative",
         top: "calc(50% - 20%)",
         left: "calc(50% - 40%)",
