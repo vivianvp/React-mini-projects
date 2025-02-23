@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-mini-projects/static/css/main.c7614326.css",
+    "main.js": "/react-mini-projects/static/js/main.fa283ffe.js",
+    "static/js/453.ed3810f9.chunk.js": "/react-mini-projects/static/js/453.ed3810f9.chunk.js",
+    "static/media/tile.jpg": "/react-mini-projects/static/media/tile.53093bc1f6957aaf5204.jpg",
+    "index.html": "/react-mini-projects/index.html",
+    "main.c7614326.css.map": "/react-mini-projects/static/css/main.c7614326.css.map",
+    "main.fa283ffe.js.map": "/react-mini-projects/static/js/main.fa283ffe.js.map",
+    "453.ed3810f9.chunk.js.map": "/react-mini-projects/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7614326.css",
+    "static/js/main.fa283ffe.js"
+  ]
+}
