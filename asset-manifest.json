@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-mini-projects/static/css/main.c7614326.css",
-    "main.js": "/react-mini-projects/static/js/main.b5f178f8.js",
-    "static/js/453.ed3810f9.chunk.js": "/react-mini-projects/static/js/453.ed3810f9.chunk.js",
-    "static/media/tile.jpg": "/react-mini-projects/static/media/tile.53093bc1f6957aaf5204.jpg",
-    "index.html": "/react-mini-projects/index.html",
-    "main.c7614326.css.map": "/react-mini-projects/static/css/main.c7614326.css.map",
-    "main.b5f178f8.js.map": "/react-mini-projects/static/js/main.b5f178f8.js.map",
-    "453.ed3810f9.chunk.js.map": "/react-mini-projects/static/js/453.ed3810f9.chunk.js.map"
+    "main.css": "/React-mini-projects/static/css/main.f3808046.css",
+    "main.js": "/React-mini-projects/static/js/main.06c45be1.js",
+    "static/js/453.ed3810f9.chunk.js": "/React-mini-projects/static/js/453.ed3810f9.chunk.js",
+    "static/media/tile.jpg": "/React-mini-projects/static/media/tile.53093bc1f6957aaf5204.jpg",
+    "index.html": "/React-mini-projects/index.html",
+    "main.f3808046.css.map": "/React-mini-projects/static/css/main.f3808046.css.map",
+    "main.06c45be1.js.map": "/React-mini-projects/static/js/main.06c45be1.js.map",
+    "453.ed3810f9.chunk.js.map": "/React-mini-projects/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c7614326.css",
-    "static/js/main.b5f178f8.js"
+    "static/css/main.f3808046.css",
+    "static/js/main.06c45be1.js"
   ]
 }
