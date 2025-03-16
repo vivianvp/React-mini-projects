@@ -158,7 +158,6 @@ function App() {
         changeTextColor={changeTextColor}
       />
       {shapes.map((shape) => renderElements(shape))}
-      {console.log(shapes)}
     </div>
   );
 }
